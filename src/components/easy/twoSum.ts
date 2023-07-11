@@ -72,25 +72,33 @@ twoSum([2, 7, 11, 15], 9);
 // nums = [3,3]
 // target = 6
 
+
+
 // copliot solution:
 /**
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
  */
-var twoSum2 = function (nums: string | any[], target: number) {
-  // Create a new Map object.
+var twoSum2 = function (nums: any, target: any) {
+  // Create a new map to store the numbers and their indices
   const map = new Map();
-  // Loop through each element in the array.
+
+  // Iterate through the array
   for (let i = 0; i < nums.length; i++) {
-    // Find the complement of the current element.
+    // Find the complement of the current number
     const complement = target - nums[i];
-    // Check to see if the complement exists in the Map.
+
+    // Check if the complement exists in the map
     if (map.has(complement)) {
-      // Return the index of the complement and the current index.
+      console.log(map.get(complement), i);
+      // If it does, return the indices of the two numbers
       return [map.get(complement), i];
     }
-    // Add the current element to the Map.
+
+    // If the complement doesn't exist in the map,
+    // add the current number and its index to the map
     map.set(nums[i], i);
   }
 };
+twoSum2([2, 7, 11, 15], 9);

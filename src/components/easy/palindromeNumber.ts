@@ -44,21 +44,22 @@
  * @param {number} x
  * @return {boolean}
  */
-var isPalindrome = function (x: number) {
-//   0(n) time | 0(n) space
-    // check if number is negative
-    if (x < 0) return false;
-    // initialize reversed number
-    let reversed = 0;
-    // initialize number
-    let num = x;
-    // loop through number
-    while (num > 0) {
-        // multiply reversed by 10 and add remainder of num
-        reversed = reversed * 10 + (num % 10);
-        // divide num by 10 and round down
-        num = Math.floor(num / 10);
+var isPalindrome = function (x: any) {
+    // 1. convert our number to a string
+    // 2. reverse the string
+    // 3. compare the reversed string to the original string
+    // 4. return true or false
+    
+    // 1.
+    let stringNum = x.toString();
+    // 2.
+    let reversedString = stringNum.split('').reverse().join('');
+    // 3.
+    if (stringNum === reversedString) {
+        // 4.
+        return true;
+    } else {
+        console.log(stringNum, reversedString);
+        return false;
     }
-    // return boolean if reversed is strictly equal to number
-    return reversed === x;
 };
