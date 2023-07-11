@@ -35,42 +35,21 @@
  * @param {number} target
  * @return {number[]}
  */
+var twoSum = function (nums: any, target: any) {
 
-// GOAL:
-// 1. iterate over each of the  elements in our array
-// with a loop
-
-// 2. create another loop to look for the value that is
-// equal to our target if we sum both numbers
-
-// 3. return the indices in our empty output array
-// (i = first pointer & j = second poitner)
-
-var twoSum = function (nums: string | any[], target: number) {
-  // 1.
-  for (let i = 0; i < nums.length; i++) {
-    // 2.
-    for (let j = i + 1; j < nums.length; j++) {
-      if (nums[i] + nums[j] === target) {
-        // -> console.log(nums[i, j]) *incorrect console.log postion
-        console.log([i, j]);
-        // 3.
-        return [i, j];
-      }
-    }
-  }
 };
-twoSum([2, 7, 11, 15], 9);
 
-// test case:
-// nums = [2,7,11,15]
-// target = 9
 
-// nums = [3,2,4]
-// target = 6
 
-// nums = [3,3]
-// target = 6
+
+
+
+
+
+
+
+
+
 
 
 
@@ -102,3 +81,39 @@ var twoSum2 = function (nums: any, target: any) {
   }
 };
 twoSum2([2, 7, 11, 15], 9);
+
+// GOAL:
+// 1. iterate over each of the  elements in our array
+// with a loop
+
+// 2. create another loop to look for the value that is
+// equal to our target if we sum both numbers
+
+// 3. return the indices in our empty output array
+// (i = first pointer & j = second poitner)
+
+// var twoSum = function (nums: string | any[], target: number) {
+// 1.
+// for (let i = 0; i < nums.length; i++) {
+// 2.
+// for (let j = i + 1; j < nums.length; j++) {
+//   if (nums[i] + nums[j] === target) {
+// -> console.log(nums[i, j]) *incorrect console.log postion
+// console.log([i, j]);
+// 3.
+//         return [i, j];
+//       }
+//     }
+//   }
+// };
+// twoSum([2, 7, 11, 15], 9);
+
+// test case:
+// nums = [2,7,11,15]
+// target = 9
+
+// nums = [3,2,4]
+// target = 6
+
+// nums = [3,3]
+// target = 6

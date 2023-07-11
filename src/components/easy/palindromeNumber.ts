@@ -36,6 +36,31 @@
 // integer to a string ?
 
 
+/**
+ * @param {number} x
+ * @return {boolean}
+ */
+var isPalindrome = function(x: any) {
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -44,7 +69,7 @@
  * @param {number} x
  * @return {boolean}
  */
-var isPalindrome = function (x: any) {
+var isPalindrome2 = function (x: any) {
     // 1. convert our number to a string
     // 2. reverse the string
     // 3. compare the reversed string to the original string
