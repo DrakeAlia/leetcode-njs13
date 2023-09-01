@@ -1,5 +1,5 @@
 // Palindrome Number:
-// Link: https://leetcode.com/problems/palindrome-number/
+// https://leetcode.com/problems/palindrome-number/
 
 // Given an integer x, return true if x is palindrome integer.
 // An integer is a palindrome when it reads the same
@@ -35,34 +35,35 @@
 // Follow up: Could you solve it without converting the
 // integer to a string ?
 
-
 /**
  * @param {number} x
  * @return {boolean}
  */
-var isPalindrome = function(x: any) {
-
+var isPalindrome = function (x: any) {
+  // if x is negative, return false
+  if (x < 0) {
+    return false;
+  }
+  // if x is 0, return true
+  if (x === 0) {
+    return true;
+  }
+  // convert x to a string
+  let stringNum = x.toString();
+  // create a reversed string
+  let reversedString = stringNum.split("").reverse().join("");
+  // if the reversed string is equal to the original string
+  if (reversedString === stringNum) {
+    // return true
+    return true;
+  } else {
+    // otherwise, return false
+    return false;
+  }
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// time complexity: O(n) because of the reverse method
+// space complexity: O(n)
 
 // copliot solution:
 /**
@@ -70,21 +71,21 @@ var isPalindrome = function(x: any) {
  * @return {boolean}
  */
 var isPalindrome2 = function (x: any) {
-    // 1. convert our number to a string
-    // 2. reverse the string
-    // 3. compare the reversed string to the original string
-    // 4. return true or false
-    
-    // 1.
-    let stringNum = x.toString();
-    // 2.
-    let reversedString = stringNum.split('').reverse().join('');
-    // 3.
-    if (stringNum === reversedString) {
-        // 4.
-        return true;
-    } else {
-        console.log(stringNum, reversedString);
-        return false;
-    }
+  // 1. convert our number to a string
+  // 2. reverse the string
+  // 3. compare the reversed string to the original string
+  // 4. return true or false
+
+  // 1.
+  let stringNum = x.toString();
+  // 2.
+  let reversedString = stringNum.split("").reverse().join("");
+  // 3.
+  if (stringNum === reversedString) {
+    // 4.
+    return true;
+  } else {
+    console.log(stringNum, reversedString);
+    return false;
+  }
 };

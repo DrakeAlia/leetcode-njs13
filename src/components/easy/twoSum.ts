@@ -1,5 +1,5 @@
 // Two Sum:
-// Link: https://leetcode.com/problems/two-sum/description/
+// https://leetcode.com/problems/two-sum/description/
 
 // Given an array of integers nums and an integer target, return indices of
 // the two numbers such that they add up to target.
@@ -36,22 +36,25 @@
  * @return {number[]}
  */
 var twoSum = function (nums: any, target: any) {
-
+  // create an empty output array
+  let output = [];
+  // iterate through the array
+  for (let i = 0; i < nums.length; i++) {
+    // iterate through the array again
+    for (let j = i + 1; j < nums.length; j++) {
+      // if the sum of the current element and the next element is equal to the target
+      if (nums[i] + nums[j] === target) {
+        // push the indices of the two numbers into the output array
+        output.push(i, j);
+      }
+    }
+  }
+  // return the output array
+  return output;
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+// time complexity: O(n^2)
+// space complexity: O(n)
 
 // copliot solution:
 /**
