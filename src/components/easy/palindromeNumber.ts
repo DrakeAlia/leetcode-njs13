@@ -71,21 +71,19 @@ var isPalindrome = function (x: any) {
  * @return {boolean}
  */
 var isPalindrome2 = function (x: any) {
-  // 1. convert our number to a string
-  // 2. reverse the string
-  // 3. compare the reversed string to the original string
-  // 4. return true or false
-
-  // 1.
+  // Convert the number to a string and store it in a variable
   let stringNum = x.toString();
-  // 2.
+  // Reverse the string using the split(), reverse(), and join() methods and store it in a new variable
   let reversedString = stringNum.split("").reverse().join("");
-  // 3.
+  // If the reversed string is equal to the original string, the number is a palindrome
   if (stringNum === reversedString) {
-    // 4.
     return true;
   } else {
-    console.log(stringNum, reversedString);
     return false;
   }
 };
+
+// test cases:
+// Example 1
+const x1 = 121;
+console.log(isPalindrome(x1)); // true

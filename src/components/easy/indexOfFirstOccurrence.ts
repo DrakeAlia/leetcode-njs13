@@ -42,14 +42,12 @@ var strStr = function (haystack: any, needle: any) {
 // time complexity: O(n) because of the indexOf method
 // space complexity: O(1) because we are not creating any new data structures
 
-
 var strStr2 = function (haystack: any, needle: any) {
   return haystack.indexOf(needle);
 };
 
 // time complexity: O(n) because of the indexOf method
 // space complexity: O(1) because we are not creating any new data structures
-
 
 var strStr3 = function (haystack: any, needle: any) {
   let pointer = 0;
@@ -85,4 +83,3 @@ var strStr3 = function (haystack: any, needle: any) {
 
 // time complexity: O(n) because of the for loop
 // space complexity: O(1) because we are not creating any new data structures
-

@@ -61,5 +61,18 @@ var removeElement = function (nums: number[], val: number) {
   return k;
 };
 
+// Test cases:
+// Example 1
+const nums1 = [3, 2, 2, 3];
+const val1 = 3;
+console.log(removeElement(nums1, val1)); // 2
+console.log(nums1); // [2, 2, _, _]
+
+// Example 2
+const nums2 = [0, 1, 2, 2, 3, 0, 4, 2];
+const val2 = 2;
+console.log(removeElement(nums2, val2));
+console.log(nums2);
+
 // time complexity: O(n) because of the for loop
 // space complexity: O(1) because we are not creating any new data structures
