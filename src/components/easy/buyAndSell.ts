@@ -50,10 +50,8 @@ var maxProfit = function(prices: any) {
     return maxProfitSoFar;
 }
 
-// time complexity: O(n)
-// space complexity: O(1)
+// Test cases:
 
-// test cases:
 // Example 1
 const prices1 = [7, 1, 5, 3, 6, 4];
 console.log(maxProfit(prices1)); // 5
@@ -66,3 +64,6 @@ console.log(maxProfit(prices2)); // 0
 const prices3 = [1, 2];
 console.log(maxProfit(prices3)); // 1
 
+
+// this function's time complexity: O(n) because we are using a for loop 
+// this function's space complexity: O(1) because we are not using any additional data structures

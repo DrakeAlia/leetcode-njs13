@@ -39,6 +39,7 @@
  * @param {number} x
  * @return {boolean}
  */
+
 var isPalindrome = function (x: any) {
   // if x is negative, return false
   if (x < 0) {
@@ -62,14 +63,20 @@ var isPalindrome = function (x: any) {
   }
 };
 
-// time complexity: O(n) because of the reverse method
-// space complexity: O(n)
+// test cases:
+// Example 1
+const x = 121;
+console.log(isPalindrome(x)); // true
+
+// Example 2
+const x1 = -121;
+console.log(isPalindrome(x1)); // false
+
+// this function's time complexity: O(n) because we are using a for loop
+// this function's space complexity: O(n) because we are using a reversed string
 
 // copliot solution:
-/**
- * @param {number} x
- * @return {boolean}
- */
+
 var isPalindrome2 = function (x: any) {
   // Convert the number to a string and store it in a variable
   let stringNum = x.toString();
@@ -83,7 +90,7 @@ var isPalindrome2 = function (x: any) {
   }
 };
 
-// test cases:
-// Example 1
-const x1 = 121;
-console.log(isPalindrome(x1)); // true
+
+// this function's time complexity: O(n) because we are using a for loop
+// this function's space complexity: O(n) because we are using a reversed string
+

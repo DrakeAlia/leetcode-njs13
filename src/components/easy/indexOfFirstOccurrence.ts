@@ -10,6 +10,7 @@
 // Output: 0
 // Explanation: "sad" occurs at index 0 and 6.
 // The first occurrence is at index 0, so we return 0.
+
 // Example 2:
 
 // Input: haystack = "leetcode", needle = "leeto"
@@ -26,6 +27,7 @@
  * @param {string} needle
  * @return {number}
  */
+
 var strStr = function (haystack: any, needle: any) {
   // if needle is empty, return 0
   if (needle === "") {
@@ -39,15 +41,15 @@ var strStr = function (haystack: any, needle: any) {
   return haystack.indexOf(needle);
 };
 
-// time complexity: O(n) because of the indexOf method
-// space complexity: O(1) because we are not creating any new data structures
+// this function's time complexity: O(n) because of the indexOf method and the for loop
+// this function's space complexity: O(1) because we are not creating any new data structures
 
 var strStr2 = function (haystack: any, needle: any) {
   return haystack.indexOf(needle);
 };
 
-// time complexity: O(n) because of the indexOf method
-// space complexity: O(1) because we are not creating any new data structures
+// this function's time complexity: O(n) because of the indexOf method and the for loop
+// this function's space complexity: O(1) because we are not creating any new data structures
 
 var strStr3 = function (haystack: any, needle: any) {
   let pointer = 0;
@@ -69,6 +71,8 @@ var strStr3 = function (haystack: any, needle: any) {
   return -1;
 };
 
+// Test cases:
+
 // const result = strStr3("sadbutsad", "sad");
 // console.log("Expected output: ", 0);
 // console.log("result:", result);
@@ -81,5 +85,5 @@ var strStr3 = function (haystack: any, needle: any) {
 // console.log("Expected output: ", 4);
 // console.log("result3:", result3);
 
-// time complexity: O(n) because of the for loop
-// space complexity: O(1) because we are not creating any new data structures
+// this function's time complexity: O(n) because of the indexOf method and the for loop
+// this function's space complexity: O(1) because we are not creating any new data structures 

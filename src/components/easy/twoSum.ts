@@ -35,6 +35,7 @@
  * @param {number} target
  * @return {number[]}
  */
+
 var twoSum = function (nums: any, target: any) {
   // create an empty output array
   let output = [];
@@ -53,15 +54,11 @@ var twoSum = function (nums: any, target: any) {
   return output;
 };
 
-// time complexity: O(n^2)
-// space complexity: O(n)
+// this function's time complexity: O(n^2) because we are using two for loops
+// this function's space complexity: O(n) because we are using an output array
 
 // copliot solution:
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number[]}
- */
+
 var twoSum2 = function (nums: any, target: any) {
   // Create a new map to store the numbers and their indices
   const map = new Map();
@@ -83,7 +80,10 @@ var twoSum2 = function (nums: any, target: any) {
     map.set(nums[i], i);
   }
 };
-twoSum2([2, 7, 11, 15], 9);
+twoSum2([2, 7, 11, 15], 9); // [0, 1]
+
+// this function's time complexity: O(n) because we are using one for loop
+// this function's space complexity: O(n) because we are using a map
 
 // GOAL:
 // 1. iterate over each of the  elements in our array
@@ -95,28 +95,33 @@ twoSum2([2, 7, 11, 15], 9);
 // 3. return the indices in our empty output array
 // (i = first pointer & j = second poitner)
 
-// var twoSum = function (nums: string | any[], target: number) {
-// 1.
-// for (let i = 0; i < nums.length; i++) {
-// 2.
-// for (let j = i + 1; j < nums.length; j++) {
-//   if (nums[i] + nums[j] === target) {
-// -> console.log(nums[i, j]) *incorrect console.log postion
-// console.log([i, j]);
-// 3.
-//         return [i, j];
-//       }
-//     }
-//   }
-// };
-// twoSum([2, 7, 11, 15], 9);
+var twoSum3 = function (nums: string | any[], target: number) {
+  // 1:
+  for (let i = 0; i < nums.length; i++) {
+    // 2:
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[i] + nums[j] === target) {
+        console.log([i, j]);
+        // 3:
+        return [i, j];
+      }
+    }
+  }
+};
+twoSum3([2, 7, 11, 15], 9);
 
-// test case:
+// Test cases:
+
 // nums = [2,7,11,15]
 // target = 9
+// output = [0,1]
 
 // nums = [3,2,4]
 // target = 6
+// output = [1,2]
 
 // nums = [3,3]
 // target = 6
+
+// this function's time complexity: O(n^2) because we are using two for loops
+// this function's space complexity: O(n) because we are using an output array
