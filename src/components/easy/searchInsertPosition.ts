@@ -96,3 +96,9 @@ var searchInsert2 = function(nums: any, target: any) {
 // this function's space complexity is O(1) because we are not using any additional data structures
 
 
+// 1. We set the start to 0 and the end to the length of the array minus 1
+// 2. While the start is less than or equal to the end, we set the middle to the start plus the end divided by 2
+// 3. If the middle is equal to the target, we return the middle
+// 4. If the middle is greater than the target, we set the end to the middle minus 1
+// 5. Otherwise, we set the start to the middle plus 1
+// 6. We return the start 
