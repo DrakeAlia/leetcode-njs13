@@ -14,6 +14,23 @@
 // elements of nums are not important as well as the size of nums.
 // Return k.
 
+// Custom Judge:
+// The judge will test your solution with the following code:
+
+// int[] nums = [...]; // Input array
+// int val = ...; // Value to remove
+// int[] expectedNums = [...]; // The expected answer with correct length.
+//                             // It is sorted with no values equaling val.
+
+// int k = removeElement(nums, val); // Calls your implementation
+
+// assert k == expectedNums.length;
+// sort(nums, 0, k); // Sort the first k elements of nums
+// for (int i = 0; i < actualLength; i++) {
+//     assert nums[i] == expectedNums[i];
+// }
+// If all assertions pass, then your solution will be accepted.
+
 // Example 1:
 
 // Input: nums = [3,2,2,3], val = 3
@@ -44,6 +61,7 @@
  * @param {number} val
  * @return {number}
  */
+
 var removeElement = function (nums: number[], val: number) {
   // k is the index of the next position to be filled
   let k = 0;

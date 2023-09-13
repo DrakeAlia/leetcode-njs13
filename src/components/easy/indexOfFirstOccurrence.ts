@@ -72,7 +72,6 @@ var strStr3 = function (haystack: any, needle: any) {
 };
 
 // Test cases:
-
 // const result = strStr3("sadbutsad", "sad");
 // console.log("Expected output: ", 0);
 // console.log("result:", result);
@@ -86,4 +85,4 @@ var strStr3 = function (haystack: any, needle: any) {
 // console.log("result3:", result3);
 
 // this function's time complexity: O(n) because of the indexOf method and the for loop
-// this function's space complexity: O(1) because we are not creating any new data structures 
+// this function's space complexity: O(1) because we are not creating any new data structures

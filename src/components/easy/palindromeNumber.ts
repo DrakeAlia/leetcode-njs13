@@ -33,7 +33,7 @@
 
 // -2^31 <= x <= 2^31 - 1
 // Follow up: Could you solve it without converting the
-// integer to a string ?
+// integer to a string?
 
 /**
  * @param {number} x
@@ -63,7 +63,7 @@ var isPalindrome = function (x: any) {
   }
 };
 
-// test cases:
+// Test Cases:
 // Example 1
 const x = 121;
 console.log(isPalindrome(x)); // true
@@ -72,11 +72,10 @@ console.log(isPalindrome(x)); // true
 const x1 = -121;
 console.log(isPalindrome(x1)); // false
 
-// this function's time complexity: O(n) because we are using a for loop
+// isPalindrome's time complexity: O(n) because we are using a for loop
 // this function's space complexity: O(n) because we are using a reversed string
 
 // copliot solution:
-
 var isPalindrome2 = function (x: any) {
   // Convert the number to a string and store it in a variable
   let stringNum = x.toString();
@@ -90,7 +89,38 @@ var isPalindrome2 = function (x: any) {
   }
 };
 
-
 // this function's time complexity: O(n) because we are using a for loop
 // this function's space complexity: O(n) because we are using a reversed string
 
+// solve this function without converting the integer to a string(Best runtime and memory usage):
+var isPalindrome3 = function (x: any) {
+  // if x is negative, return false
+  if (x < 0) {
+    return false;
+  }
+  // if x is 0, return true
+  if (x === 0) {
+    return true;
+  }
+  // create a variable to hold the reversed number
+  let reversedNum = 0;
+  // create a variable to hold the original number
+  let originalNum = x;
+  // while x is greater than 0
+  while (x > 0) {
+    // multiply the reversed number by 10 and add the remainder of x divided by 10
+    reversedNum = reversedNum * 10 + (x % 10);
+    // divide x by 10
+    x = Math.floor(x / 10);
+  }
+  // if the reversed number is equal to the original number
+  if (reversedNum === originalNum) {
+    // return true
+    return true;
+  }
+  // otherwise, return false
+  return false;
+};
+
+// isPalindrome3's time complexity: O(n) because we are using a while loop
+// isPalindrome3's space complexity: O(1) because we are not using any additional data structures

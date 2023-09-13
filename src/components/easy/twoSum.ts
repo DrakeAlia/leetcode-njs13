@@ -111,7 +111,6 @@ var twoSum3 = function (nums: string | any[], target: number) {
 twoSum3([2, 7, 11, 15], 9);
 
 // Test cases:
-
 // nums = [2,7,11,15]
 // target = 9
 // output = [0,1]
@@ -122,6 +121,12 @@ twoSum3([2, 7, 11, 15], 9);
 
 // nums = [3,3]
 // target = 6
+// output = [0, 1]
 
 // this function's time complexity: O(n^2) because we are using two for loops
 // this function's space complexity: O(n) because we are using an output array
+
+// create a function that is less than O(n2) time complexity
+var twoSum4 = function (nums: string | any[], target: number) {
+  
+};
