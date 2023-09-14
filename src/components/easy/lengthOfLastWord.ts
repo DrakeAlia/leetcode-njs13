@@ -67,16 +67,8 @@ var lengthOfLastWord = function (s: any) {
 const s = "Hello World";
 console.log(lengthOfLastWord(s)); // 5
 
-// Using built-in method but not recommended
-var lengthOfLastWord2 = function (s2: any) {
-  return s2.trim().split(" ").pop().length;
-};
-
-// this function's time complexity is O(n) because we are using a for loop
-// this function's space complexity is O(1) because we are not using any additional data structures
-
 // using two while loops
-var lengthOfLastWord3 = function (s3: any) {
+var lengthOfLastWord2 = function (s3: any) {
   let i = s3.length - 1; // i is the index of the last character in s3
   let length = 0; // length is the length of the last word in s3
   // remove the trailing spaces
@@ -99,7 +91,7 @@ var lengthOfLastWord3 = function (s3: any) {
 // this function's space complexity is O(1) because we are not using any additional data structures
 
 // using one while loop
-var lengthOfLastWord4 = function (s4: any) {
+var lengthOfLastWord3 = function (s4: any) {
   // set i to the last character in the string
   let i = s4.length - 1;
   // set letter count to 0
@@ -122,4 +114,12 @@ var lengthOfLastWord4 = function (s4: any) {
 };
 
 // this function's time complexity is O(n) because we are a while loop
+// this function's space complexity is O(1) because we are not using any additional data structures
+
+// Using built-in method but NOT recommended
+var lengthOfLastWord4 = function (s2: any) {
+  return s2.trim().split(" ").pop().length;
+};
+
+// this function's time complexity is O(n) because we are using a for loop
 // this function's space complexity is O(1) because we are not using any additional data structures

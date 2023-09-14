@@ -48,11 +48,13 @@ var strStr2 = function (haystack: any, needle: any) {
   return haystack.indexOf(needle);
 };
 
-// this function's time complexity: O(n) because of the indexOf method and the for loop
+// this function's time complexity: O(n) because of the indexOf method
 // this function's space complexity: O(1) because we are not creating any new data structures
 
 var strStr3 = function (haystack: any, needle: any) {
+  // create a pointer to keep track of the index of the needle
   let pointer = 0;
+  // iterate through the haystack
   for (let i = 0; i < haystack.length; i++) {
     // If the character in haystack does not equal the character in needle at the current pointer
     if (haystack[i] !== needle[pointer]) {
@@ -84,5 +86,5 @@ var strStr3 = function (haystack: any, needle: any) {
 // console.log("Expected output: ", 4);
 // console.log("result3:", result3);
 
-// this function's time complexity: O(n) because of the indexOf method and the for loop
-// this function's space complexity: O(1) because we are not creating any new data structures
+// strStr3's time complexity: O(n) because of the for loop
+// strStr3's space complexity: O(1) because we are not creating any new data structures

@@ -64,36 +64,17 @@ var isPalindrome = function (x: any) {
 };
 
 // Test Cases:
-// Example 1
 const x = 121;
 console.log(isPalindrome(x)); // true
 
-// Example 2
 const x1 = -121;
 console.log(isPalindrome(x1)); // false
 
 // isPalindrome's time complexity: O(n) because we are using a for loop
 // this function's space complexity: O(n) because we are using a reversed string
 
-// copliot solution:
-var isPalindrome2 = function (x: any) {
-  // Convert the number to a string and store it in a variable
-  let stringNum = x.toString();
-  // Reverse the string using the split(), reverse(), and join() methods and store it in a new variable
-  let reversedString = stringNum.split("").reverse().join("");
-  // If the reversed string is equal to the original string, the number is a palindrome
-  if (stringNum === reversedString) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
-// this function's time complexity: O(n) because we are using a for loop
-// this function's space complexity: O(n) because we are using a reversed string
-
 // solve this function without converting the integer to a string(Best runtime and memory usage):
-var isPalindrome3 = function (x: any) {
+var isPalindrome2 = function (x: any) {
   // if x is negative, return false
   if (x < 0) {
     return false;
@@ -122,5 +103,5 @@ var isPalindrome3 = function (x: any) {
   return false;
 };
 
-// isPalindrome3's time complexity: O(n) because we are using a while loop
-// isPalindrome3's space complexity: O(1) because we are not using any additional data structures
+// isPalindrome2's time complexity: O(n) because we are using a while loop
+// isPalindrome2's space complexity: O(1) because we are not using any additional data structures
