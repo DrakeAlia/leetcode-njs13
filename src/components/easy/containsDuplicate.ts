@@ -31,18 +31,19 @@ var containsDuplicate = function (nums: any) {
   // type, whether primitive values or object references.
   // create a set to store the elements of the array
   let set = new Set();
-  // loop through the array
+  // loop through the array and check if the set has the current element.
   for (let i = 0; i < nums.length; i++) {
     // if the set has the current element
     if (set.has(nums[i])) {
-      // return true
+      // return true because it means that the array has a duplicate
       return true;
+      // if the set doesn't have the current element
     } else {
-      // add the current element to the set
+      // add the current element to the set because
       set.add(nums[i]);
     }
   }
-  // return false
+  // return false because it means that the array doesn't have a duplicate
   return false;
 };
 
