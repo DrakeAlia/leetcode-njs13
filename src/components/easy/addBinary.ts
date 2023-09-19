@@ -66,6 +66,20 @@ console.log(addBinary("0", "0")); // "0"
 // const alsoHuge = BigInt(9007199254740991);
 // 9007199254740991n
 
+// Another solution using BigInts (Fast runtime and low memory usage)
+var addBinary1 = function (a: any, b: any) {
+  // Convert the input a and b into binary string.
+  const aBin = `0b${a}`;
+  const bBin = `0b${b}`;
+  // Add the two binary strings
+  const sum = BigInt(aBin) + BigInt(bBin);
+  // Convert the sum to a binary string and return it
+  return sum.toString(2);
+};
+
+// Time Complexity: O(n) because we loop through the array once
+// Space Complexity: O(1) because we don't create any new data structures
+
 // Another solution using a loop (SLOW runtime and HIGH memory usage)
 var addBinary2 = function (a: any, b: any) {
   // create a variable to store the result
