@@ -1,4 +1,5 @@
 // Climbing Stairs
+// https://leetcode.com/problems/climbing-stairs/
 
 // You are climbing a staircase. It takes n steps to reach the top.
 // Each time you can either climb 1 or 2 steps. In how many distinct ways can
@@ -50,14 +51,17 @@ var climbStairs = function (n: any) {
   // create a for loop that starts at 3 and goes up to n,
   // this is because we already know the answer for n = 1 and n = 2.
   for (let i = 3; i <= n; i++) {
-    // temp is equal to a + b
+    // temp is equal to a + b, the reason why we are using temp is
+    // because we will be changing the values of a and b in the
+    // next step.
     temp = a + b;
-    // a is equal to b
+    // a is equal to b, this is because a will be the previous b value.
     a = b;
-    // b is equal to temp
+    // b is equal to temp, this is because b will be the previous temp value.
     b = temp;
   }
-  // return b
+  // return b, this is because b will be the final value for
+  // the number of ways to climb the stairs.
   return b;
 };
 
