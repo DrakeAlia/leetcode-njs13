@@ -87,7 +87,7 @@ var mySqrt2 = function (x: any) {
 // Space Complexity: O(1) because we don't create any new data structures
 
 // Another solution using binary search
-var sqrt = function (x: any) {
+var mySqrt3 = function (x: any) {
   // Check if x is 0 or 1, as the square root of 0 or 1 is the number itself.
   if (x <= 1) {
     return x;
