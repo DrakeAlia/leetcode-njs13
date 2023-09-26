@@ -55,32 +55,75 @@ console.log(mySqrt(3)); // 1
 console.log(mySqrt(5)); // 2
 console.log(mySqrt(6)); // 2
 
-// Solution using binary search (Fast runtime)
+// Solution using binary search (Fast runtime and low memory usage)
 var mySqrt2 = function (x: any) {
-  // create a variable to store the result, this will be the square root of x
+  // create a variable to store the result, result is the number we're looking for
   let result = 0;
-  // create a variable to store the left pointer
+  // create a variable to store the left pointer, left is the smallest possible value we can search for
   let left = 1;
-  // create a variable to store the right pointer
+  // create a variable to store the right pointer, right is the largest possible value we can search for
   let right = x;
-  // loop while the left pointer is less than or equal to the right pointer
+  // while there are still numbers to consider, loop while the left pointer is less than or equal to the right pointer
   while (left <= right) {
-    // create a variable to store the middle pointer
+    // create a variable to store the middle pointer and pick the middle number
     let middle = Math.floor((left + right) / 2);
-    // if the square of the middle pointer is less than or equal to x
+    // if the square of the middle pointer is less than or equal to x, if the middle number is too small
     if (middle * middle <= x) {
       // set the result to the middle pointer
       result = middle;
-      // set the left pointer to the middle pointer plus 1
+      // set the left pointer to the middle pointer plus 1 and search to the right
       left = middle + 1;
-      // if the square of the middle pointer is greater than x
+      // if the square of the middle pointer is greater than x, if the middle number is too big
     } else {
-      // set the right pointer to the middle pointer minus 1
+      // set the right pointer to the middle pointer minus 1 and search to the left
       right = middle - 1;
     }
   }
-  // return the result
+  // return the result, once there's nothing left to search for, we're done
   return result;
+};
+
+// Time Complexity: O(log n) because we use binary search
+// Space Complexity: O(1) because we don't create any new data structures
+
+// Another solution using binary search
+var sqrt = function (x: any) {
+  // Check if x is 0 or 1, as the square root of 0 or 1 is the number itself.
+  if (x <= 1) {
+    return x;
+  }
+
+  // Set the left and right boundaries for the binary search.
+  // We clearly don't need to consider any numbers larger than x / 2,
+  // since x / 2 * x / 2 = x * x / 4 > x for x > 1.
+  let left = 0;
+  let right = x;
+
+  // Loop until our pointers meet.
+  while (left <= right) {
+    // Compute the midpoint of our current search space.
+    const mid = Math.floor((left + right) / 2);
+    const midSquared = mid * mid;
+
+    // If we've found the target at the midpoint, we're done.
+    if (midSquared === x) {
+      return mid;
+    }
+
+    // If x is less than the midpoint, search the space to the left.
+    if (midSquared > x) {
+      right = mid - 1;
+    }
+
+    // If x is greater than the midpoint, search the space to the right.
+    if (midSquared < x) {
+      left = mid + 1;
+    }
+  }
+
+  // The loop terminated without finding an exact integer square root,
+  // so return the integer part of the last mid.
+  return Math.floor((left + right) / 2);
 };
 
 // Time Complexity: O(log n) because we use binary search
