@@ -111,6 +111,7 @@ var merge2 = function (nums1: number[], m: number, nums2: number[], n: number) {
 
   // Start from the end of the two arrays
   // and move backwards
+  // while loop will stop when i is less than 0 or j is less than 0
   while (i >= 0 && j >= 0) {
     // If the element in nums1 is greater than
     // the element in nums2, move it to the end of
@@ -118,23 +119,30 @@ var merge2 = function (nums1: number[], m: number, nums2: number[], n: number) {
     if (nums1[i] > nums2[j]) {
       // set the current element of nums1 to the current element of nums1
       nums1[k] = nums1[i];
+      // decrement the index of nums1
       k--;
+      // decrement the index of nums1
       i--;
       // Otherwise, move the element in nums2 to the end
       // of the array
     } else {
       // set the current element of nums1 to the current element of nums2
       nums1[k] = nums2[j];
+      // decrement the index of nums1
       k--;
-      j--;``
+      // decrement the index of nums2
+      j--;
     }
   }
   // If we still have elements in nums2, move them to
   // the end of the array
+  // while loop will stop when j is less than 0
   while (j >= 0) {
     // set the current element of nums1 to the current element of nums2
     nums1[k] = nums2[j];
+    // decrement the index of nums1
     k--;
+    // decrement the index of nums2
     j--;
   }
 };
