@@ -27,18 +27,21 @@ function bubbleSort2(nums: any) {
         // store the value of the current index.
         const temp = nums[i];
 
-        // set the value of the current index to the value of the next index
+        // set the value of the current index to the value of the next
+        // index
         nums[i] = nums[i + 1];
 
-        // set the value of the next index to the value of the current index
+        // set the value of the next index to the value of the current
+        // index
         nums[i + 1] = temp;
 
         // set swapped to true to indicate that a swap has occurred
         swapped = true;
       }
     }
-    // if swapped is true, repeat step 2.
+    // if swapped is true, we will execute the loop again.
   } while (swapped);
+  // return the sorted array after all swaps have been made.
   return nums;
 }
 
