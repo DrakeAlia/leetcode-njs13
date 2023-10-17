@@ -43,6 +43,10 @@ const merge = (left: any[], right: any[]) => {
   return results.concat(left, right); // concat will take the remaining elements and put them on the end
 };
 
+// Time Complexity: O(n log n) because we are splitting the array in half and then merging them
+// back together
+// Space Complexity: O(n) because we are creating a new array to store the sorted elements
+
 // Test cases:
 // Example 1
 // const nums = [5, 4, 3, 2, 1];
@@ -56,47 +60,22 @@ const merge = (left: any[], right: any[]) => {
 //   expect(ans).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 // });
 
-
-// create a mergeSort function
-const mergeSort = (nums: any) => {
-  // if the array is less than 2 elements long, return it
-  if (nums.length < 2) {
-    return nums;
-  }
-
-  // find the middle of the array
-  const length = nums.length;
-  const middle = Math.floor(length / 2);
-
-  // slice the array into left and right halves
-  const left = nums.slice(0, middle);
-  const right = nums.slice(middle);
-
-  // sort the left and right halves
-  const sortedLeft = mergeSort(left);
-  const sortedRight = mergeSort(right);
-
-  // merge the sorted halves
-  return merge(sortedLeft, sortedRight);
-};
-
-// create a merge function
-const merge = (left: any[], right: any[]) => {
-  // create an empty array to store the results
-  const results = [];
-
-  // while both left and right arrays have elements in them
-  while (left.length && right.length) {
-    // if the first element of the left array is smaller or equal to the first element of the right array
-    if (left[0] <= right[0]) {
-      // push the first element of the left array into the results array
-      results.push(left.shift());
-    } else {
-      // otherwise, push the first element of the right array into the results array
-      results.push(right.shift());
-    }
-  }
-
-  // return the results array concatenated with the left and right arrays
-  return results.concat(left, right);
-};
+// Steps:
+// 1. We have a function called mergeSort that takes in an array of numbers.
+// 2. If the length of the array is less than 2, we will return the array.
+// 3. Otherwise, we will break the array into two smaller arrays.
+// 4. We will call mergeSort on the two smaller arrays.
+// 5. We will return the result of calling the merge function on the two
+// smaller arrays.
+// 6. The merge function takes in two arrays.
+// 7. We will create an empty array called results.
+// 8. While there are still elements in both arrays, we will compare the
+// first element of each array.
+// 9. If the first element of the left array is less than or equal to the
+// first element of the right array, we will remove the first element of
+// the left array and push it onto the results array.
+// 10. Otherwise, we will remove the first element of the right array and
+// push it onto the results array.
+// 11. We will return the results array concatenated with the left array
+// and the right array.
+// 12. We will return the sorted array.

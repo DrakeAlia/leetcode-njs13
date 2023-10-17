@@ -1,17 +1,14 @@
 // Bubble Sort
 
-/*
-  Write a bubble sort here
-  Name the function bubbleSort
-  Return the sorted array at the end
-  
-  
-  Bubble sort works by comparing two adjacent numbers next to each other and then
-  swapping their places if the smaller index's value is larger than the larger
-  index's. Continue looping through until all values are in ascending order
-*/
+// Write a bubble sort here
+// Name the function bubbleSort
+// Return the sorted array at the end
 
-function bubbleSort2(nums: any) {
+// Bubble sort works by comparing two adjacent numbers next to each other and then
+// swapping their places if the smaller index's value is larger than the larger
+// index's. Continue looping through until all values are in ascending order
+
+function bubbleSort(nums: any) {
   // initialize swapped variable as false. This will be used to determine
   // if we have swapped any numbers.
   let swapped = false;
@@ -45,7 +42,7 @@ function bubbleSort2(nums: any) {
   return nums;
 }
 
-// Time Complexity: O(n^2) because we have a nested loop
+// Time Complexity: O(n^2) because we have a nested loop and we are iterating through the array twice
 // Space Complexity: O(1) because we are not using any additional data
 // structures
 
