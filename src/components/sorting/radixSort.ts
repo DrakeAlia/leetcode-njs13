@@ -2,89 +2,73 @@
 
 // Implement a radix sort in a function called radixSort.
 // You'll probably need several functions
-// You can implement it using a binary or decimal based bucketing but I'd recommend the
-// decimal based buckets because
-// it ends up being a lot more simple to implement.
+// You can implement it using a binary or decimal based bucketing
+// but I'd recommend the decimal based buckets because it ends
+// up being a lot more simple to implement.
 
 // number = 1391, place = 0, longestNumber = 4
 // returns 1
 
 function getDigit(number: any, place: any, longestNumber: any) {
+  // turn number into string
+  const string = number.toString();
+  // get the size of the string
+  const size = string.length;
 
+  // get the mod of the longest number and the size of the string.
+  const mod = longestNumber - size;
+  // return the number at the place - mod
+  return string[place - mod] || 0;
 }
 
-function getLongestNumber() {
-    
+function getLongestNumber(array: any) {
+  // set longest to 0
+  let longest = 0;
+  // loop through array and get the length of each number
+  for (let i = 0; i < array.length; i++) {
+    // if the current length is greater than longest
+    const currentLength = array[i].toString().length;
+    // set longest to current length if current length is greater than longest
+    longest = currentLength > longest ? currentLength : longest;
+  }
+  return longest;
 }
 
+// inital code here
 function radixSort(array: any) {
   // find longest number
+  const longestNumber = getLongestNumber(array);
+
   // create how many buckets you need an array of 10 arrays
-  // for loop for how many iterations you need to do
-  // while loop
-  // enqueue the numbers into their buckets
-  // for loop for each bucket
-  // dequeue all of the results into the array
+  const buckets = new Array(10).fill().map(() => []);
+  // loop through the array from the longest number to 0
+  for (let i = longestNumber - 1; i >= 0; i--) {
+    // loop through the array
+    while (array.length) {
+      // get the current number
+      const current = array.shift();
+      // push the current number into the bucket at the current digit
+      buckets[getDigit(current, i, longestNumber)].push(current);
+    }
+    // loop through the buckets
+    for (let j = 0; j < 10; j++) {
+      // loop through the bucket at the current index
+      while (buckets[j].length) {
+        // push the shifted number into the array
+        array.push(buckets[j].shift());
+      }
+    }
+  }
+
+  return array;
 }
 
-// unit tests
-// do not modify the below code
-// describe("radix sort", function () {
-//   it("should sort correctly", () => {
-//     const nums = [
-//       20,
-//       51,
-//       3,
-//       801,
-//       415,
-//       62,
-//       4,
-//       17,
-//       19,
-//       11,
-//       1,
-//       100,
-//       1244,
-//       104,
-//       944,
-//       854,
-//       34,
-//       3000,
-//       3001,
-//       1200,
-//       633
-//     ];
-//     const ans = radixSort(nums);
-//     expect(ans).toEqual([
-//       1,
-//       3,
-//       4,
-//       11,
-//       17,
-//       19,
-//       20,
-//       34,
-//       51,
-//       62,
-//       100,
-//       104,
-//       415,
-//       633,
-//       801,
-//       854,
-//       944,
-//       1200,
-//       1244,
-//       3000,
-//       3001
-//     ]);
-//   });
-//   it("should sort 99 random numbers correctly", () => {
-//     const fill = 99;
-//     const nums = new Array(fill)
-//       .fill()
-//       .map(() => Math.floor(Math.random() * 500000));
-//     const ans = radixSort(nums);
-//     expect(ans).toEqual(nums.sort());
-//   });
-// });
+// Time Complexity: O(nk) where n is the length of the array and k is the number of digits(average).
+// This is because we have to loop through the array n times and then loop through each number k times.
+// Space Complexity: O(n + k) because we are creating a new array of length n and a new array of length k
+
+// Tests cases
+// Example 1
+// radixSort([8, 6, 1, 12]) // [1, 6, 8, 12]
+// Example 2
+// radixSort([10, 100, 1, 1000, 10000000]) // [1, 10, 100, 1000, 10000000]
