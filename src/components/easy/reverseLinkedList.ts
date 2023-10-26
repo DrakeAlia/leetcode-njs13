@@ -37,30 +37,20 @@
  */
 
 // This solution is iterative because we are using a while loop to iterate through the linked list
+// Fast runtime and low memory usage
 var reverseList = function (head: any) {
-  // create a variable to store the previous node
   let prev = null;
-  // create a variable to store the current node
-  let curr = head;
-  // create a variable to store the next node
-  let next = null;
-  // iterate through the linked list
-  while (curr !== null) {
-    // store the next node
-    next = curr.next;
-    // set the current node's next to the previous node
-    curr.next = prev;
-    // set the previous node to the current node
-    prev = curr;
-    // set the current node to the next node
-    curr = next;
+  while (head !== null) {
+    let nextNode = head.next;
+    head.next = prev;
+    prev = head;
+    head = nextNode;
   }
-  // return the previous node
   return prev;
 };
 
 // time complexity: O(n) because we are iterating through the linked list
-// space complexity: O(1) because we are not creating any new data structures
+// space complexity: O(1) because we are not creating any new data structures and we are using constant space
 
 // Test cases:
 // Example 1:
@@ -84,42 +74,32 @@ var reverseList = function (head: any) {
 // d. Assign head to nextNode because we are moving the head pointer forward
 // 3. return prev because that is the new head of the linked list
 
-// This solution is iterative because we are using a while loop to iterate through the linked list
-// Fast runtime and low memory usage
-var reverseList2 = function (head: any) {
-  let prev = null;
-  while (head !== null) {
-    let nextNode = head.next;
-    head.next = prev;
-    prev = head;
-    head = nextNode;
-  }
-  return prev;
-};
-
-// time complexity: O(n) because we are iterating through the linked list
-// space complexity: O(1) because we are not creating any new data structures and we are using constant space
-
-// Approach:
-// 1. create a function that takes in a head node
-// 2. create a base case that checks if the head is null or the head.next is null
-// 3. create a recursive case that calls the function recursively
-// 4. create a variable to store the reversedListHead
-// 5. set the reversedListHead to the recursive call
-// 6. set the head.next.next to the head
-// 7. set the head.next to null
-// 8. return the reversedListHead
-
 // This solution is recursive because we are calling the function recursively
-var reverseList3 = function (head: any) {
+var reverseList2 = function (head: any) {
+  // Base case: empty list or list with one node is already reversed
   if (head === null || head.next === null) {
     return head;
   }
-  let reversedListHead = reverseList(head.next);
+
+  // Reverse the rest of the list
+  let reversedListHead = reverseList2(head.next);
+
+  // Reverse the current node by pointing its next to the previous node
   head.next.next = head;
+
+  // Set the current node's next to null
   head.next = null;
+
+  // Return the head of the reversed list
   return reversedListHead;
 };
 
 // time complexity: O(n) because we are iterating through the linked list
 // space complexity: O(n) because we are creating new function calls
+
+// Steps:
+// 1. Check if the head is null or the next node is null because that means the list is empty or has one node
+// 2. Reverse the rest of the list by calling the function recursively
+// 3. Reverse the current node by pointing its next to the previous node
+// 4. Set the current node's next to null
+// 5. Return the head of the reversed list
