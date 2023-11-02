@@ -66,9 +66,11 @@ var reverseList = function (head: any) {
 // console.log(reverseList(head3)); // []
 
 // Approach:
-// 1. create a prev variable and assign it to null
+// 1. create a prev variable and assign it to null because we will lose the reference
+// to the previous node
 // 2. loop through the linked list (while loop) by checking if head is not null
-// a. create nextNode variable and assign it to head.next because we will lose the reference to the next node
+// a. create nextNode variable and assign it to head.next because we will lose the
+// reference to the next node
 // b. Assign head.next to prev because we are reversing the linked list
 // c. Assign prev to head because we are moving the prev pointer forward
 // d. Assign head to nextNode because we are moving the head pointer forward
@@ -76,30 +78,35 @@ var reverseList = function (head: any) {
 
 // This solution is recursive because we are calling the function recursively
 var reverseList2 = function (head: any) {
-  // Base case: empty list or list with one node is already reversed
   if (head === null || head.next === null) {
     return head;
   }
 
-  // Reverse the rest of the list
   let reversedListHead = reverseList2(head.next);
 
-  // Reverse the current node by pointing its next to the previous node
   head.next.next = head;
 
-  // Set the current node's next to null
   head.next = null;
 
-  // Return the head of the reversed list
   return reversedListHead;
 };
 
-// time complexity: O(n) because we are iterating through the linked list
+// time complexity: O(n) because recursive functions have to go through all the function calls
+// to get to the base case
 // space complexity: O(n) because we are creating new function calls
 
 // Steps:
-// 1. Check if the head is null or the next node is null because that means the list is empty or has one node
-// 2. Reverse the rest of the list by calling the function recursively
-// 3. Reverse the current node by pointing its next to the previous node
-// 4. Set the current node's next to null
-// 5. Return the head of the reversed list
+// 1. We first check if the head is empty or if the head is the only element in the list.
+// If so, we return the head.
+// 2. We then call the function recursively with the next node in the list. This will return 
+// the reversed list head for all elements except the head. 
+// 3. We then set the next node's next pointer to the current node. 
+// 4. We then set the current node's next pointer to null. 
+// 5. We return the reversed list head. This will be the head of the reversed list.
+
+// A reversed linked list is a data structure in which the elements (nodes) are linked together
+// in reverse order compared to a regular linked list. In a regular linked list, each node points
+// to the next node in the sequence. In a reversed linked list, each node points to the previous
+// node. This means that the last node in the list becomes the new head, and the head of the
+// regular linked list becomes the tail in the reversed linked list.
+
